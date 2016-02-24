@@ -79,17 +79,12 @@ architecture Behavioral of main is
 
 	
 
-	COMPONENT seccounter
-
+	component seccounter
 	PORT(
-
 		clk : IN std_logic;          
-
 		clk_trig_o : OUT std_logic
-
 		);
-
-	END COMPONENT;
+	end component;
 
 
 
@@ -97,34 +92,26 @@ begin
 
 
 
-u1_bufg : bufg port map (
-   i => clk,
-	o => clk_buf);
+	u1_bufg : bufg port map (
+   		i => clk,
+		o => clk_buf
+	);
 
 
 
 	Inst_seccounter: seccounter PORT MAP(
-
 		clk => clk_buf,
-
 		clk_trig_o => clk_1sec
-
 	);
 
 
 
 process(clk_buf) begin
-
 	if(clk_buf'event and clk_buf = '1') then
-
 		if(clk_1sec = '1') then
-
 			counter <= counter + 1;
-
 		end if;
-
 	end if;
-
 end process;
 
 
