@@ -1,0 +1,16 @@
+#led bank, active high
+net led(3) loc = a4; 
+net led(2) loc = c4;
+net led(1) loc = c14; 
+net led(0) loc = e13;
+#button bank, active high
+net btn(3) loc = f5;
+net btn(2) loc = p4;
+net btn(1) loc = e4;
+net btn(0) loc = f6;
+##clock
+net clk loc = v10;
+NET "clk" TNM_NET = TNM_sys_clk;
+TIMESPEC "TS_sys_clk" = PERIOD "TNM_sys_clk" 27 MHz;
+
+config ENABLE_SUSPEND="FILTERED";
